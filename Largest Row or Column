@@ -1,0 +1,53 @@
+
+/*
+You can use minimum value of integer as -2147483647 and 
+maximum value of integer as 2147483647
+*/
+
+
+
+
+void findLargest(int **input, int nRows, int mCols)
+{
+    //Write your code here
+    int rmax=-2147483648,idx=0;
+    for (int i = 0; i < nRows; i++) {
+        int sum = 0;
+ 
+        // calculate sum of row
+        for (int j = 0; j < mCols; j++) {
+            sum += input[i][j];
+        }
+ 
+        // Update maxSum if it is less than
+        // current sum
+        if (sum > rmax) {
+            rmax = sum;
+ 
+            // store index
+            idx = i;
+        }
+    }
+    int cmax=-2147483648,idy=0;
+    for(int i=0;i<mCols;i++)
+            {
+                int sum=0;
+                int j=0;
+                for(;j<nRows;j++)
+                    {
+                        sum+=input[j][i];
+                    }
+                 if (sum > cmax) 
+                    { 
+                        cmax = sum;
+            
+                        // store index
+                        idy =i;
+                    }
+
+            }
+    if (rmax>=cmax)
+        cout<<"row "<<idx<<" "<<rmax<<endl;
+    else
+        cout<<"column "<<idy<<" "<<cmax<<endl;
+}
