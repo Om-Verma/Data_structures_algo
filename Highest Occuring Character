@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+char highestOccurringChar(char input[]) {
+  // Write your code here
+  // Create array to keep the count of individual
+  // characters and initialize the array as 0
+  int count[128] = {0};
+
+  // Coninputuct character count array from the input
+  // inputing.
+  int len = strlen(input);
+  int max = 0; // Initialize max count
+  char result; // Initialize result
+
+  // Traversing through the inputing and maintaining
+  // the count of each character
+  for (int i = 0; i < len; i++) {
+    count[input[i]]++;
+    if (max <= count[input[i]]) {
+      max = count[input[i]];
+      result = input[i];
+    }
+  }
+
+  return result;
+}
